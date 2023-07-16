@@ -3,29 +3,13 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Login from "./pages/login";
 import Navbar from "./components/Navbar";
-
-// const router = createBrowserRouter([
-//     {
-//         path: "/",
-//         element: <Home />,
-//     },
-//     {
-//         path: "/about",
-//         element: <About />,
-//     },
-//     {
-//         path:'/login',
-//         element:<Login/>
-//     }
-// ]);
+import Login from "./pages/Login";
+import Registration from "./pages/registration";
 
 function App() {
     return(
         <div>
-            {/* <Navbar/>
-            <RouterProvider router={router} />; */}
             <Router>
                 <Navbar 
                     alumni="/alumni"
@@ -33,12 +17,13 @@ function App() {
                     about="/about"
                     home="/"
                     events="/events"
+                    registration="/registration"
                 />
                 <Routes>
                     <Route path="/" element={<Home/>} />``
                     <Route path="/about" element={<About/>} />
                     <Route path="/login" element={<Login/>} />
-                    {/* <Route path="/" element={<Home/>} /> */}
+                    <Route path="/registration" element={<Registration/>} />
                 </Routes>
             </Router>
         </div>
