@@ -2,6 +2,7 @@ import React from "react";
 import alumni_2 from '../images/alumni_2.jpeg'
 import About from "./About";
 import Hero from "./Hero";
+
 const Home = () => {
   return(
     <div>
@@ -14,6 +15,7 @@ const Home = () => {
       <div className=" p-5 translate-y-[-14rem]">
         <Hero/>
       </div>
+      
     </div>
     
   )
