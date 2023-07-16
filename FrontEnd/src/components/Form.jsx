@@ -12,10 +12,10 @@ export default function Form(props) {
     
     const navigate=useNavigate()
     let schema=yup.object().shape({
-        firstName:yup.string().required(),
+        firstName:yup.string(),
         lastName:yup.string().required(),
         username:yup.string().required(),
-        email:yup.string().email().required(),
+        email:yup.string().email(),
         password:yup.string().min(4).max(32).required(),
         confirmPassword:yup.string().oneOf([yup.ref("password"),null]).required(),
         title:yup.string().required(),
@@ -23,7 +23,7 @@ export default function Form(props) {
         category:yup.string().required(),
         date:yup.string().required(),
         time:yup.string().required(),
-        contact:yup.string().required(),
+        contact:yup.string(),
 
     })
 
@@ -71,7 +71,7 @@ export default function Form(props) {
 
             <form onSubmit={handleSubmit(checkLogin)} className='grid-cols-2 gap-2 border-black border-solid' >
 
-                {(props.firstName) && (<div className="flex w-full">
+                {((props.firstName) || (props.name))  && (<div className="flex w-full">
                     <p className={textInput}>First Name </p>
                     <input type="text" placeholder='First Name' size={28} id="fname" {...register("firstName")}
                        className={input}
@@ -165,6 +165,30 @@ export default function Form(props) {
                 {(props.contact) && (<div className={inputData}>
                     <p className={textInput}>Contact</p>
                     <input type="text" placeholder='contact...' size={28} id="contact" {...register("contact")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}           
+
+{/* ********************************************* searchUser ********************************************** */}
+                
+                {(props.year) && (<div className={inputData}>
+                    <p className={textInput}>year</p>
+                    <input type="text" placeholder='year...' size={28} id="year" {...register("year")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}           
+                {(props.branch) && (<div className={inputData}>
+                    <p className={textInput}>branch</p>
+                    <input type="text" placeholder='branch...' size={28} id="branch" {...register("branch")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}           
+                {(props.enrollmentNo) && (<div className={inputData}>
+                    <p className={textInput}>enrollmentNo</p>
+                    <input type="text" placeholder='enrollmentNo...' size={28} id="enrollmentNo" {...register("enrollmentNo")}
                        className={input}
                     />
                     <p className={errorMessage}>{errors.email?.message}</p>
