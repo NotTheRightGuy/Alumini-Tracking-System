@@ -10,6 +10,7 @@ import CollegeHome from "./pages/CollegeHome";
 import GroupChats from "./pages/GroupChats";
 import { useState } from "react";
 import Events from "./pages/Events";
+import CreateEvent from "./components/createEvent";
 
 function App() {
     
@@ -32,6 +33,7 @@ function App() {
                     <Route path="/login" element={<Login/>} />
                     <Route path="/registration" element={<Registration/>} />
                     <Route path="/collegeHome" element={<CollegeHome/>} />
+                    <Route path="/collegeHome/createEvent" element={<CreateEvent/>} />
                     <Route path="/collegeHome/groupChats" element={<GroupChats/>} />
                     <Route path="/events" element={<Events/>} />
                     

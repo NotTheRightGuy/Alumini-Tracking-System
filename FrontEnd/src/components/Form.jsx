@@ -17,7 +17,14 @@ export default function Form(props) {
         username:yup.string().required(),
         email:yup.string().email().required(),
         password:yup.string().min(4).max(32).required(),
-        confirmPassword:yup.string().oneOf([yup.ref("password"),null]).required()
+        confirmPassword:yup.string().oneOf([yup.ref("password"),null]).required(),
+        title:yup.string().required(),
+        description:yup.string().required(),
+        category:yup.string().required(),
+        date:yup.string().required(),
+        time:yup.string().required(),
+        contact:yup.string().required(),
+
     })
 
     let {register,handleSubmit,formState:errors}=useForm({
@@ -29,7 +36,7 @@ export default function Form(props) {
     }
 
     const textInput="text-gray-500 text-sm w-1/2 pt-2"
-    const input="w-full border-solid border-2 p-2 rounded hover:cursor-pointer hover:shadow-lg "
+    const input="w-full border-solid border-2 p-2 rounded hover:cursor-pointer hover:shadow-lg"
     const errorMessage='text-red-500 text-sm'
 
 
@@ -41,6 +48,7 @@ export default function Form(props) {
     return(
         <div className="flex flex-col justify-center items-center border-solid border-2 rounded-lg w-2/5 m-auto px-10 py-4 ">
 
+            {(props.username)&&(<>
             <div className="flex gap-5">
                 <div className='flex gap-2 p-3 rounded-lg hover:cursor-pointer border-solid border-2 px-10 '>
                     <FcGoogle size={30} className='text-white' />
@@ -58,6 +66,8 @@ export default function Form(props) {
                 </div>
                 <div className='border-solid border-2 h-0 w-full'></div>
             </div>
+            </>
+            )}
 
             <form onSubmit={handleSubmit(checkLogin)} className='grid-cols-2 gap-2 border-black border-solid' >
 
@@ -68,6 +78,7 @@ export default function Form(props) {
                     />
                     <p className={errorMessage}>{errors.firstName?.message}</p>
                 </div>)}
+
                 {(props.lastName) && (<div className={inputData}>
                     <p className={textInput}>Last Name </p>
                     <input type="text" placeholder='Last Name' size={28} id="lname" {...register("lastName")}
@@ -110,11 +121,6 @@ export default function Form(props) {
                     <p>Forgot Password ?</p>
                 </div>}
 
-                <div className='flex justify-center w-full mt-5'>
-                    <input type="submit"
-                        className='bg-[#00356B]  hover:bg-blue-700 text-white font-bold  rounded p-2'
-                    />
-                </div>
 
                 {props.login && (<div className='text-center'>
                     <p className='text-gray-500 self-end hover:cursor-pointer hover:underline text-sm py-4' onClick={registration}>Don't have an account? signUp</p>
@@ -162,11 +168,12 @@ export default function Form(props) {
                        className={input}
                     />
                     <p className={errorMessage}>{errors.email?.message}</p>
-                </div>)}
-
-              
-
-
+                </div>)}           
+                <div className='flex justify-center w-full mt-5 '>
+                    <input type="submit"
+                        className='bg-[#00356B]  hover:bg-blue-700 text-white font-bold  rounded p-2 hover:cursor-pointer'
+                    />
+                </div>
             </form>
         </div>
     )
