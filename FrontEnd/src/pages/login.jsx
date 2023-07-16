@@ -8,7 +8,6 @@ export default function Login(){
                 password="true"
                 login="true"
             />
-
         </div>
     )
 }
