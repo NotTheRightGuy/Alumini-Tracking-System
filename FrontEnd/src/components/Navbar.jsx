@@ -28,6 +28,9 @@ export default function Navbar(props){
                     {(props.home) && <NavLink to={props.home} className={btn}>
                         <button className='p-2'>News</button>
                     </NavLink>}
+                    {(props.registration) && <NavLink to={props.registration} className={btn}>
+                        <button className='p-2'>Registration</button>
+                    </NavLink>}
                 </div>
                 
             </div>
