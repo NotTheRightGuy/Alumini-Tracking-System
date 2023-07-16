@@ -16,7 +16,7 @@ export default function Navbar(props){
             </NavLink>
             <NavLink to='/About' className='link'>
                 <button className={style} >
-                    About
+                    College
                 </button>
             </NavLink>
             <NavLink to='/' className='link'>

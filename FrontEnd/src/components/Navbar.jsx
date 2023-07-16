@@ -8,7 +8,7 @@ export default function Navbar(props){
         <div className='px-20 '>
 
             <div className='flex justify-between h-44 items-center '  >
-                <div className='place-items-start'>
+                <div>
                     {(props.alumni)&& <NavLink to={props.alumni} className='text-6xl text-[#00356B]'>
                         <button className='font-bold' >Alumni</button>
                     </NavLink>}
@@ -23,7 +23,7 @@ export default function Navbar(props){
                         <button className='p-2'>Events</button>
                     </NavLink>}
                     {(props.about) && <NavLink to={props.about} className={btn}>
-                        <button className='p-2'>About</button>
+                        <button className='p-2'>College</button>
                     </NavLink>}
                     {(props.home) && <NavLink to={props.home} className={btn}>
                         <button className='p-2'>News</button>
