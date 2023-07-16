@@ -26,67 +26,69 @@ export default function Form(props) {
         console.log(data)
     }
 
-    const input="w-full border-solid border-2 p-2 rounded hover:cursor-pointer hover:shadow-lg "
-    const paragraph='text-gray-500 text-sm'
+    const input=" border-solid border-2 p-2 rounded hover:cursor-pointer hover:shadow-lg "
+    const paragraph='text-gray-500 text-sm p-1'
     const registration=()=>{
         navigate('/registration')
     }
 
-    const inputData='flex flex-col gap-1 pt-2'
+    const inputData='flex gap-10 pt-2'
     return(
-        <div className="flex flex-col justify-center items-center border-solid border-2 rounded-lg w-fit m-auto px-10 py-4">
+        <div className="flex flex-col justify-center items-center border-solid border-2 rounded-lg w-10/12 m-auto px-10 py-4">
 
-            <div className={inputData}>
-                <div className='flex gap-2 p-3 rounded-lg hover:cursor-pointer border-solid border-2 px-10 '>
-                    <FcGoogle size={30} className='text-white' />
+            <div className="flex gap-20 pt-2 w-full justify-center">
+                <div className='flex hover:cursor-pointer border-solid border-2 rounded-lg px-5 p-3 w-1/3'>
+                    <FcGoogle size={30} className='text-white pr-2' />
                     <p>Signin With Google</p>
                 </div>
-                <div className='flex gap-2 p-3 rounded-lg hover:cursor-pointer border-solid border-2 px-10'>
+                <div className='flex gap-2 p-3 rounded-lg hover:cursor-pointer border-solid border-2 px- w-1/3'>
                     <FaLinkedin size={30} className='text-blue-900' />
-                    <p>Signin With Google</p>
+                    <p>Signin With LinkedIn</p>
                 </div>
             </div>
             <div className='py-3 flex w-full items-center gap-2'>
                 <div  className='border-solid border-2 h-0 w-full'></div>
                 <div>
-                    or
+                    OR
                 </div>
                 <div className='border-solid border-2 h-0 w-full'></div>
             </div>
 
             <form onSubmit={handleSubmit(checkLogin)} className='grid-cols-2 gap-2 border-black border-solid' >
 
-                {(props.firstName) && (<div className={inputData}>
-                    <p className={paragraph}>firstName </p>
-                    <input type="text" placeholder='firstName...' size={28} id="fname" {...register("firstName")}
-                       className={input}
-                    />
-                    <p className='text-red-500 text-sm'>{errors.firstName?.message}</p>
-                </div>)}
-                {(props.lastName) && (<div className={inputData}>
-                    <p className={paragraph}>lastName </p>
-                    <input type="text" placeholder='lastName...' size={28} id="lname" {...register("lastName")}
-                       className={input}
-                    />
-                    <p className='text-red-500 text-sm'>{errors.lastName?.message}</p>
-                </div>)}
+                <div className='flex'>
+                    {(props.firstName) && (<div className="flex">
+                        <p className="text-gray-500 text-sm p-2 ">First Name </p>
+                        <input type="text" placeholder='First Name' size={28} id="fname" {...register("firstName")}
+                        className="border-solid border-2 p-2 rounded hover:cursor-pointer hover:shadow-lg mr-12"
+                        />
+                        <p className='text-red-500 text-sm'>{errors.firstName?.message}</p>
+                    </div>)}
+                    {(props.lastName) && (<div className="flex">
+                        <p className="text-gray-500 text-sm p-2 pl-7">Last Name </p>
+                        <input type="text" placeholder='Last Name' size={28} id="lname" {...register("lastName")}
+                        className={input}
+                        />
+                        <p className='text-red-500 text-sm'>{errors.lastName?.message}</p>
+                    </div>)}
+                </div>
                 {(props.username) && (<div className={inputData}>
-                    <p className={paragraph}>Email or username </p>
-                    <input type="text" placeholder='username...' size={28} id="uname" {...register("username")}
+                    <p className= "">Email or Username </p>
+                    <input type="text" placeholder='Username' size={28} id="uname" {...register("username")}
                        className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.username?.message}</p>
                 </div>)}
                 {(props.email) && (<div className={inputData}>
-                    <p className={paragraph}>email </p>
-                    <input type="text" placeholder='email...' size={28} id="email" {...register("email")}
+                    <p className={paragraph}>Email </p>
+                    <input type="text" placeholder='Email' size={28} id="email" {...register("email")}
                        className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.email?.message}</p>
                 </div>)}
                 {props.password && <div>
                     <p className={paragraph}>Password</p>
-                    <input type="password" placeholder='password...' id="upassword" {...register("password")} 
+                    <input type="password" placeholder='Password' id="upassword" {...register("password")} 
                         className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.password?.message}</p>
@@ -94,15 +96,15 @@ export default function Form(props) {
                 </div>}
 
                 {(props.confirmPassword) && (<div className={inputData}>
-                    <p className={paragraph}>confirmPassword </p>
-                    <input type="text" placeholder='confirmPassword...' size={28} id="cpassword" {...register("confirmPassword")}
+                    <p className={paragraph}>Confirm Password </p>
+                    <input type="text" placeholder='Confirm Password' size={28} id="cpassword" {...register("confirmPassword")}
                        className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.confirmPassword?.message}</p>
                 </div>)}
 
                 {props.login &&<div className="text-gray-500 self-end hover:cursor-pointer hover:underline text-sm pt-2" >
-                    <p>forgot password ?</p>
+                    <p>Forgot Password ?</p>
                 </div>}
 
                 <input type="submit"
