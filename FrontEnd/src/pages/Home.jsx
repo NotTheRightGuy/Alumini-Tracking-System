@@ -1,9 +1,10 @@
-function Home() {
-    return <div>Hello World This is Home
-        Devvrat push 
-        again
-        
-    </div>;
-}
+import React from "react";
 
-export default Home;
+const Home = () => {
+  return(
+    <div>
+      <h1>Landing Page</h1>
+    </div>
+  )
+}
+export default Home
