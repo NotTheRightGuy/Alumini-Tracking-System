@@ -34,7 +34,7 @@ export default function Form(props) {
 
     const inputData='flex flex-col gap-1 pt-2'
     return(
-        <div className="flex flex-col justify-center items-center border-solid border-2 rounded-lg w-fit m-auto px-10 py-4">
+        <div className="flex flex-col justify-center items-center border-solid border-2 rounded-lg w-fit m-auto px-10 py-4 ">
 
             <div className={inputData}>
                 <div className='flex gap-2 p-3 rounded-lg hover:cursor-pointer border-solid border-2 px-10 '>
