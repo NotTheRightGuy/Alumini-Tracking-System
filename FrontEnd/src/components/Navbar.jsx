@@ -1,36 +1,42 @@
 import { Link,NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import SearchBar from './Searchbar'
+import Linker from './Linker'
 export default function Navbar(props){
 
-    const btn="hover:bg-[#286dc0] px-5 py-2 duration-300 rounded hover:text-white "
+    const [groupChats,setGroupChats]=useState(false)
+    const [connect,setConnect]=useState(false)
+    console.log(connect)
+    const btn="hover:bg-[#286dc0] px-5 py-2 duration-300 rounded hover:text-white  text-2xl"
+    const changeNavbar=()=>{
+       setConnect(!connect)
+       setGroupChats(!groupChats)
+       console.log(connect)
+
+    }
+
     return(
         <>
         <div className='px-20 '>
 
             <div className='flex justify-between h-44 items-center '  >
-                <div className='place-items-start'>
-                    {(props.alumni)&& <NavLink to={props.alumni} className='text-6xl text-[#00356B]'>
-                        <button className='font-bold' >Alumni</button>
-                    </NavLink>}
+                <div>
+                    {(props.alumni)&& <Linker page={props.alumni} name="alumni" currClass="text-6xl text-[#00356B]"/>}
                 </div> 
                 <SearchBar/>
-                <div className='flex justify-end text-2xl text-[#00356B]'>
+                <div className='flex justify-end  text-[#00356B]'>
 
-                    {(props.login)&& <NavLink to={props.login} className={btn}>
-                        <button className='p-2'>Login</button>
-                    </NavLink>}
-                    {(props.events) && <NavLink to={props.events} className={btn}>
-                        <button className='p-2'>Events</button>
-                    </NavLink>}
-                    {(props.about) && <NavLink to={props.about} className={btn}>
-                        <button className='p-2'>College</button>
-                    </NavLink>}
-                    {(props.home) && <NavLink to={props.home} className={btn}>
-                        <button className='p-2'>News</button>
-                    </NavLink>}
-                    {(props.registration) && <NavLink to={props.registration} className={btn}>
-                        <button className='p-2'>Registration</button>
-                    </NavLink>}
+                    {(props.login)&&(!connect)&& <Linker page={props.login} name="login" currClass={btn}/>}
+                    {(connect)&& <Linker page="/collegeHome/connect" name="connect" currClass={btn}/>}
+                    {(props.events) && <Linker page={props.events} name="events" currClass={btn}/>}
+                    {(props.about) && <Linker page={props.about} name="about" currClass={btn}/>}
+                    {(props.home) && <Linker page={props.home} name="home" currClass={btn}/>}
+                    {(props.registration) && (!connect)&& <Linker page={props.registration} name="registration" currClass={btn}/>}
+                    {(groupChats) && <Linker page="/collegeHome/connect" name="groupChats" currClass={btn}/>}
+                    {/* {(props.collegeHome) && <Linker page={props.collegeHome} name="collegeHome" currClass={btn} />} */}
+                    <NavLink to={props.collegeHome} className={btn}>
+                        <button className='2' onClick={changeNavbar}> CollegeHome</button>
+                    </NavLink>
                 </div>
                 
             </div>
