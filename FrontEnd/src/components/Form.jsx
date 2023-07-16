@@ -28,8 +28,11 @@ export default function Form(props) {
         console.log(data)
     }
 
+    const textInput="text-gray-500 text-sm w-1/2 pt-2"
     const input="w-full border-solid border-2 p-2 rounded hover:cursor-pointer hover:shadow-lg "
-    const paragraph='text-gray-500 text-sm'
+    const errorMessage='text-red-500 text-sm'
+
+
     const registration=()=>{
         navigate('/registration')
     }
@@ -59,48 +62,48 @@ export default function Form(props) {
             <form onSubmit={handleSubmit(checkLogin)} className='grid-cols-2 gap-2 border-black border-solid' >
 
                 {(props.firstName) && (<div className="flex w-full">
-                    <p className="text-gray-500 text-sm w-1/2 pt-2">First Name </p>
+                    <p className={textInput}>First Name </p>
                     <input type="text" placeholder='First Name' size={28} id="fname" {...register("firstName")}
                        className={input}
                     />
-                    <p className='text-red-500 text-sm'>{errors.firstName?.message}</p>
+                    <p className={errorMessage}>{errors.firstName?.message}</p>
                 </div>)}
                 {(props.lastName) && (<div className={inputData}>
-                    <p className="text-gray-500 text-sm w-1/2 pt-2">Last Name </p>
+                    <p className={textInput}>Last Name </p>
                     <input type="text" placeholder='Last Name' size={28} id="lname" {...register("lastName")}
                        className={input}
                     />
-                    <p className='text-red-500 text-sm'>{errors.lastName?.message}</p>
+                    <p className={errorMessage}>{errors.lastName?.message}</p>
                 </div>)}
                 {(props.username) && (<div className={inputData}>
-                    <p className="text-gray-500 text-sm w-1/2 pt-2">Email or username </p>
+                    <p className={textInput}>Email or username </p>
                     <input type="text" placeholder='username' size={28} id="uname" {...register("username")}
                        className={input}
                     />
-                    <p className='text-red-500 text-sm'>{errors.username?.message}</p>
+                    <p className={errorMessage}>{errors.username?.message}</p>
                 </div>)}
                 {(props.email) && (<div className={inputData}>
-                    <p className="text-gray-500 text-sm w-1/2 pt-2">Email </p>
+                    <p className={textInput}>Email </p>
                     <input type="text" placeholder='email' size={28} id="email" {...register("email")}
                        className={input}
                     />
-                    <p className='text-red-500 text-sm'>{errors.email?.message}</p>
+                    <p className={errorMessage}>{errors.email?.message}</p>
                 </div>)}
                 {props.password &&( <div className={inputData}>
-                    <p className="text-gray-500 text-sm w-1/2 pt-2">Password</p>
+                    <p className={textInput}>Password</p>
                     <input type="password" placeholder='password' id="upassword" {...register("password")} 
                         className={input}
                     />
-                    <p className='text-red-500 text-sm'>{errors.password?.message}</p>
+                    <p className={errorMessage}>{errors.password?.message}</p>
 
                 </div>)}
 
                 {(props.confirmPassword) && (<div className={inputData}>
-                    <p className="text-gray-500 text-sm w-1/2 pt-2">Confirm Password </p>
+                    <p className={textInput}>Confirm Password </p>
                     <input type="text" placeholder='confirmPassword' size={28} id="cpassword" {...register("confirmPassword")}
                        className={input}
                     />
-                    <p className='text-red-500 text-sm'>{errors.confirmPassword?.message}</p>
+                    <p className={errorMessage}>{errors.confirmPassword?.message}</p>
                 </div>)}
 
                 {props.login &&<div className="text-gray-500 self-end hover:cursor-pointer hover:underline text-sm pt-2" >
@@ -116,6 +119,54 @@ export default function Form(props) {
                 {props.login && (<div className='text-center'>
                     <p className='text-gray-500 self-end hover:cursor-pointer hover:underline text-sm py-4' onClick={registration}>Don't have an account? signUp</p>
                 </div>)}
+
+{/* ****************************************** CreateEvent **************************************************** */}
+                {(props.title) && (<div className={inputData}>
+                    <p className={textInput}>Title</p>
+                    <input type="text" placeholder='title...' size={28} id="title" {...register("title")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}
+                {(props.description) && (<div className={inputData}>
+                    <p className={textInput}>description</p>
+                    <input type="textarea" placeholder='description...' size={28} id="description" {...register("description")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}
+                {(props.category) && (<div className={inputData}>
+                    <p className={textInput}>Category</p>
+                    <input type="text" placeholder='category...' size={28} id="category" {...register("category")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}
+                {(props.date) && (<div className={inputData}>
+                    <p className={textInput}>Date</p>
+                    <input type="text" placeholder='date...' size={28} id="date" {...register("date")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}
+                {(props.time) && (<div className={inputData}>
+                    <p className={textInput}>Time</p>
+                    <input type="text" placeholder='time...' size={28} id="time" {...register("time")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}
+                {(props.contact) && (<div className={inputData}>
+                    <p className={textInput}>Contact</p>
+                    <input type="text" placeholder='contact...' size={28} id="contact" {...register("contact")}
+                       className={input}
+                    />
+                    <p className={errorMessage}>{errors.email?.message}</p>
+                </div>)}
+
+              
+
+
             </form>
         </div>
     )
