@@ -23,7 +23,7 @@ export default function Navbar(props){
                         <button className='p-2'>Events</button>
                     </NavLink>}
                     {(props.about) && <NavLink to={props.about} className={btn}>
-                        <button className='p-2'>About</button>
+                        <button className='p-2'>College</button>
                     </NavLink>}
                     {(props.home) && <NavLink to={props.home} className={btn}>
                         <button className='p-2'>News</button>
