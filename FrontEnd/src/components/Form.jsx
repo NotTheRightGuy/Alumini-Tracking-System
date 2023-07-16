@@ -34,86 +34,88 @@ export default function Form(props) {
         navigate('/registration')
     }
 
-    const inputData='flex flex-col gap-1 pt-2'
+    const inputData='flex gap-1 pt-2'
     return(
-        <div className="flex flex-col justify-center items-center border-solid border-2 rounded-lg w-fit m-auto px-10 py-4 ">
+        <div className="flex flex-col justify-center items-center border-solid border-2 rounded-lg w-2/5 m-auto px-10 py-4 ">
 
-            <div className={inputData}>
+            <div className="flex gap-5">
                 <div className='flex gap-2 p-3 rounded-lg hover:cursor-pointer border-solid border-2 px-10 '>
                     <FcGoogle size={30} className='text-white' />
                     <p>Signin With Google</p>
                 </div>
                 <div className='flex gap-2 p-3 rounded-lg hover:cursor-pointer border-solid border-2 px-10'>
                     <FaLinkedin size={30} className='text-blue-900' />
-                    <p>Signin With Google</p>
+                    <p>Signin With LinkedIn</p>
                 </div>
             </div>
             <div className='py-3 flex w-full items-center gap-2'>
                 <div  className='border-solid border-2 h-0 w-full'></div>
                 <div>
-                    or
+                    OR
                 </div>
                 <div className='border-solid border-2 h-0 w-full'></div>
             </div>
 
             <form onSubmit={handleSubmit(checkLogin)} className='grid-cols-2 gap-2 border-black border-solid' >
 
-                {(props.firstName) && (<div className={inputData}>
-                    <p className={paragraph}>firstName </p>
-                    <input type="text" placeholder='firstName...' size={28} id="fname" {...register("firstName")}
+                {(props.firstName) && (<div className="flex w-full">
+                    <p className="text-gray-500 text-sm w-1/2 pt-2">First Name </p>
+                    <input type="text" placeholder='First Name' size={28} id="fname" {...register("firstName")}
                        className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.firstName?.message}</p>
                 </div>)}
                 {(props.lastName) && (<div className={inputData}>
-                    <p className={paragraph}>lastName </p>
-                    <input type="text" placeholder='lastName...' size={28} id="lname" {...register("lastName")}
+                    <p className="text-gray-500 text-sm w-1/2 pt-2">Last Name </p>
+                    <input type="text" placeholder='Last Name' size={28} id="lname" {...register("lastName")}
                        className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.lastName?.message}</p>
                 </div>)}
                 {(props.username) && (<div className={inputData}>
-                    <p className={paragraph}>Email or username </p>
-                    <input type="text" placeholder='username...' size={28} id="uname" {...register("username")}
+                    <p className="text-gray-500 text-sm w-1/2 pt-2">Email or username </p>
+                    <input type="text" placeholder='username' size={28} id="uname" {...register("username")}
                        className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.username?.message}</p>
                 </div>)}
                 {(props.email) && (<div className={inputData}>
-                    <p className={paragraph}>email </p>
-                    <input type="text" placeholder='email...' size={28} id="email" {...register("email")}
+                    <p className="text-gray-500 text-sm w-1/2 pt-2">Email </p>
+                    <input type="text" placeholder='email' size={28} id="email" {...register("email")}
                        className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.email?.message}</p>
                 </div>)}
-                {props.password && <div>
-                    <p className={paragraph}>Password</p>
-                    <input type="password" placeholder='password...' id="upassword" {...register("password")} 
+                {props.password &&( <div className={inputData}>
+                    <p className="text-gray-500 text-sm w-1/2 pt-2">Password</p>
+                    <input type="password" placeholder='password' id="upassword" {...register("password")} 
                         className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.password?.message}</p>
 
-                </div>}
+                </div>)}
 
                 {(props.confirmPassword) && (<div className={inputData}>
-                    <p className={paragraph}>confirmPassword </p>
-                    <input type="text" placeholder='confirmPassword...' size={28} id="cpassword" {...register("confirmPassword")}
+                    <p className="text-gray-500 text-sm w-1/2 pt-2">Confirm Password </p>
+                    <input type="text" placeholder='confirmPassword' size={28} id="cpassword" {...register("confirmPassword")}
                        className={input}
                     />
                     <p className='text-red-500 text-sm'>{errors.confirmPassword?.message}</p>
                 </div>)}
 
                 {props.login &&<div className="text-gray-500 self-end hover:cursor-pointer hover:underline text-sm pt-2" >
-                    <p>forgot password ?</p>
+                    <p>Forgot Password ?</p>
                 </div>}
 
-                <input type="submit"
-                    className={input}
-                />
+                <div className='flex justify-center w-full mt-5'>
+                    <input type="submit"
+                        className='bg-[#00356B]  hover:bg-blue-700 text-white font-bold  rounded p-2'
+                    />
+                </div>
 
-                {props.login && <div className='text-center'>
+                {props.login && (<div className='text-center'>
                     <p className='text-gray-500 self-end hover:cursor-pointer hover:underline text-sm py-4' onClick={registration}>Don't have an account? signUp</p>
-                </div>}
+                </div>)}
             </form>
         </div>
     )
