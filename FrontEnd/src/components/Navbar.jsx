@@ -19,24 +19,26 @@ export default function Navbar(props){
         <>
         <div className='px-20 '>
 
-            <div className='flex justify-between h-44 items-center '  >
+                         
+            <div className='flex justify-between h-32 items-center mb-5'  >
                 <div>
                     {(props.alumni)&& <Linker page={props.alumni} name="Alumni" currClass="text-6xl text-[#00356B]" className="font-bold"/>}
                 </div> 
                 <SearchBar/>
                 <div className='flex justify-end  text-[#00356B]'>
 
-                    {(props.login)&&(!connect)&& <Linker page={props.login} name="Login" currClass={btn}/>}
+                    <NavLink to={props.collegeHome} className={btn}>
+                        <button className='2' onClick={changeNavbar}> College Home</button>
+                    </NavLink>
                     {(connect)&& <Linker page="/collegeHome/connect" name="Connect" currClass={btn}/>}
                     {(props.events) && <Linker page={props.events} name="Events" currClass={btn}/>}
                     {(props.about) && <Linker page={props.about} name="About" currClass={btn}/>}
                     {(props.home) && <Linker page={props.home} name="Home" currClass={btn}/>}
-                    {(props.registration) && (!connect)&& <Linker page={props.registration} name="Registration" currClass={btn}/>}
-                    {(groupChats) && <Linker page="/collegeHome/connect" name="Group Chats" currClass={btn}/>}
+                    {(props.events) && <Linker page={props.events} name="Notice" currClass={btn}/>}
+                    {/* {(groupChats) && <Linker page="/collegeHome/connect" name="Group Chats" currClass={btn}/>} */}
                     {/* {(props.collegeHome) && <Linker page={props.collegeHome} name="collegeHome" currClass={btn} />} */}
-                    <NavLink to={props.collegeHome} className={btn}>
-                        <button className='2' onClick={changeNavbar}> College Home</button>
-                    </NavLink>
+                    {(props.login)&&(!connect)&& <Linker page={props.login} name="Login" currClass={btn}/>}
+                    {(props.registration) && (!connect)&& <Linker page={props.registration} name="Registration" currClass={btn}/>}
                 </div>
                 
             </div>

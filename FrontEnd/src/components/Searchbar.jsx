@@ -1,8 +1,12 @@
+import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 const SearchBar = () => {
+    const navigate=useNavigate()
     const registration=()=>{
         console.log('hello')
+        navigate('/searchUser')
+        
     }
   return (
     <div className='flex h-10 px-5 mt-6'>

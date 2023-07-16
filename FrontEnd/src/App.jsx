@@ -11,6 +11,7 @@ import GroupChats from "./pages/GroupChats";
 import { useState } from "react";
 import Events from "./pages/Events";
 import CreateEvent from "./components/createEvent";
+import SearchUser from "./pages/SearchUser";
 
 function App() {
     
@@ -21,12 +22,13 @@ function App() {
                 <Navbar 
                     alumni="/alumni"
                     login="/login"
-                    about="/about"
                     home="/"
                     events="/events"
                     registration="/registration"
                     collegeHome="/collegeHome"
                 />
+                <div className='border-2 border-solid border-black-300 mb-16'>
+            </div>  
                 <Routes>
                     <Route path="/" element={<Home/>} />``
                     <Route path="/about" element={<About/>} />
@@ -36,6 +38,7 @@ function App() {
                     <Route path="/collegeHome/createEvent" element={<CreateEvent/>} />
                     <Route path="/collegeHome/groupChats" element={<GroupChats/>} />
                     <Route path="/events" element={<Events/>} />
+                    <Route path="/searchUser" element={<SearchUser/>} />
                     
                 </Routes>
             </Router>
