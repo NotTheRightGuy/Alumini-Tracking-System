@@ -13,9 +13,9 @@ export default function Navbar(props){
                         <button >alumni</button>
                     </NavLink>}
                 </div> 
-                {/* <div>
+                <div>
                     search
-                </div> */}
+                </div>
                 <div className='flex justify-end text-2xl text-[#00356B]'>
 
                     {(props.login)&& <NavLink to={props.login} className={btn}>
