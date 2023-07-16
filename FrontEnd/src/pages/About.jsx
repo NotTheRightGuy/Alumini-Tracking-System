@@ -6,7 +6,6 @@ function About() {
                 </hr>
             </h1>
             <h1 className="text-[#fff]">
-
             Alumni Tracking Systems (ATS) is a comprehensive platform that empowers college alumni to easily update their personal information while providing them with access to the latest events and news related to their alma mater. With ATS, alumni can conveniently maintain and manage their details, ensuring accurate and up-to-date records.
 Our platform serves as a central hub for alumni to stay connected and engaged with their college community. ATS showcases a wide range of events, including reunions, workshops, seminars, and networking opportunities, allowing alumni to mark their attendance and connect with fellow graduates.
 In addition to event updates, ATS keeps alumni well-informed about the latest news and announcements from the college. Whether it's academic programs, research breakthroughs, or notable alumni achievements, our platform delivers timely updates to foster a sense of pride and connection to the institution.
