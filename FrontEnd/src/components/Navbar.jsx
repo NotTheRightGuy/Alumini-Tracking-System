@@ -35,7 +35,7 @@ export default function Navbar(props){
                     {(groupChats) && <Linker page="/collegeHome/connect" name="groupChats" currClass={btn}/>}
                     {/* {(props.collegeHome) && <Linker page={props.collegeHome} name="collegeHome" currClass={btn} />} */}
                     <NavLink to={props.collegeHome} className={btn}>
-                        <button className='2' onClick={changeNavbar}> CollegeHome</button>
+                        <button className='2' onClick={changeNavbar}> College Home</button>
                     </NavLink>
                 </div>
                 
