@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const supabase = require("../service/supabaseClient");
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
     const { email, username } = req.body;
     if (email) {
         const { data, error } = await supabase

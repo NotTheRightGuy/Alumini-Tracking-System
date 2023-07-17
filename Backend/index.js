@@ -16,6 +16,7 @@ const getDetails = require("./routes/getUser");
 const createEvent = require("./routes/createEvent");
 const getEvent = require("./routes/getEvents");
 const search = require("./routes/search");
+const collegeSearch = require("./routes/searchByCollege");
 
 // Setting up routes
 app.use("/api/auth/register", register);
@@ -25,6 +26,7 @@ app.use("/api/user/getUser", getDetails);
 app.use("/api/event/create", createEvent);
 app.use("/api/event/getEvents", getEvent);
 app.use("/api/search", search);
+app.use("/api/search/college", collegeSearch);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

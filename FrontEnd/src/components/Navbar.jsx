@@ -1,48 +1,44 @@
-import { Link,NavLink } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import SearchBar from './Searchbar'
-import Linker from './Linker'
-export default function Navbar(props){
-
-    const [groupChats,setGroupChats]=useState(false)
-    const [connect,setConnect]=useState(false)
-    console.log(connect)
-    const btn="hover:bg-[#286dc0] px-5 py-2 duration-300 rounded hover:text-white  text-2xl hover:cursor-pointer"
-    const changeNavbar=()=>{
-       setConnect(!connect)
-       setGroupChats(!groupChats)
-       console.log(connect)
-
-    }
-
-    return(
-        <>
-        <div className='px-20 '>
-
-                         
-            <div className='flex justify-between h-32 items-center mb-5'  >
-                <div>
-                    {(props.alumni)&& <Linker page={props.alumni} name="Alumni" currClass="text-6xl text-[#00356B]" className="font-bold"/>}
-                </div> 
-                <SearchBar/>
-                <div className='flex justify-end  text-[#00356B]'>
-
-                    <NavLink to={props.collegeHome} className={btn}>
-                        <button className='2' onClick={changeNavbar}> College Home</button>
-                    </NavLink>
-                    {(connect)&& <Linker page="/collegeHome/connect" name="Connect" currClass={btn}/>}
-                    {(props.events) && <Linker page={props.events} name="Events" currClass={btn}/>}
-                    {(props.about) && <Linker page={props.about} name="About" currClass={btn}/>}
-                    {(props.home) && <Linker page={props.home} name="Home" currClass={btn}/>}
-                    {(props.events) && <Linker page={props.events} name="Notice" currClass={btn}/>}
-                    {/* {(groupChats) && <Linker page="/collegeHome/connect" name="Group Chats" currClass={btn}/>} */}
-                    {/* {(props.collegeHome) && <Linker page={props.collegeHome} name="collegeHome" currClass={btn} />} */}
-                    {(props.login)&&(!connect)&& <Linker page={props.login} name="Login" currClass={btn}/>}
-                    {(props.registration) && (!connect)&& <Linker page={props.registration} name="Registration" currClass={btn}/>}
-                </div>
-                
+import { Button } from "@chakra-ui/react";
+function Navbar() {
+    return (
+        <div className="navbar h-16 w-screen flex items-center shadow-sm bg-gray-100 border-2 justify-between">
+            <div className="font-bebas text-4xl ml-8">AlumNet</div>
+            <div className="flex gap-4 mr-10">
+                <Button
+                    height={"30px"}
+                    colorScheme="black"
+                    variant="outline"
+                    borderRadius={"20px"}
+                    padding={"0px 15px"}
+                    _hover={{
+                        bg: "black",
+                        color: "white",
+                    }}
+                    onClick={() => {
+                        window.location.href = "/login";
+                    }}
+                >
+                    Login
+                </Button>
+                <Button
+                    height={"30px"}
+                    colorScheme="black"
+                    variant="outline"
+                    borderRadius={"20px"}
+                    padding={"0px 15px"}
+                    _hover={{
+                        bg: "black",
+                        color: "white",
+                    }}
+                    onClick={() => {
+                        window.location.href = "/register";
+                    }}
+                >
+                    Register
+                </Button>
             </div>
         </div>
-        </>
-    )
+    );
 }
+
+export default Navbar;
